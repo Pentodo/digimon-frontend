@@ -1,0 +1,12 @@
+<div class="digimons">
+  <div
+    *ngFor="let digimon of digimons"
+    class="digimon {{
+      digimon.level === 'In Training' ? 'training' : digimon.level.toLowerCase()
+    }}"
+  >
+    <p>{{ digimon.name }}</p>
+    <img src="{{ digimon.img }}" alt="digimon" />
+    <p>{{ digimon.level }}</p>
+  </div>
+</div>

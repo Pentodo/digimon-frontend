@@ -1,0 +1,46 @@
+.digimons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  width: 100%;
+}
+
+.digimon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0em 1em;
+  background-color: grey;
+  border-radius: 8px;
+}
+
+.digimon > img {
+  width: 240px;
+  border-radius: 50%;
+}
+
+.fresh {
+  background-color: greenyellow;
+}
+
+.training {
+  background-color: yellowgreen;
+}
+
+.rookie {
+  background-color: yellow;
+}
+
+.champion {
+  background-color: orange;
+}
+
+.ultimate {
+  background-color: orangered;
+}
+
+.mega {
+  background-color: red;
+}
