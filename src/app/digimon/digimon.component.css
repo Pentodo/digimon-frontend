@@ -20,3 +20,27 @@
   width: 240px;
   border-radius: 50%;
 }
+
+.fresh {
+  background-color: greenyellow;
+}
+
+.training {
+  background-color: yellowgreen;
+}
+
+.rookie {
+  background-color: yellow;
+}
+
+.champion {
+  background-color: orange;
+}
+
+.ultimate {
+  background-color: orangered;
+}
+
+.mega {
+  background-color: red;
+}
