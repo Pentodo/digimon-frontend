@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Pixel Digivolve";
+  src: url("./assets/Pixel Digivolve.otf");
+}
+
+@font-face {
+  font-family: "Pixel Digivolve Italic";
+  src: url("./assets/Pixel Digivolve Italic.otf");
+}
+
+body {
+  font-family: "Pixel Digivolve";
+  -webkit-font-smoothing: none;
+}
