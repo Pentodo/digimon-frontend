@@ -1,1 +1,11 @@
-<app-digimon-cards [digimons]="digimons"></app-digimon-cards>
+<div class="search">
+  <input
+    type="text"
+    [(ngModel)]="filter"
+    (ngModelChange)="filterDigimons()"
+    placeholder="Pesquisar por nome ou digievolução"
+  />
+</div>
+<app-digimon-cards
+  [digimons]="filteredDigimons ? filteredDigimons : digimons"
+></app-digimon-cards>

@@ -9,6 +9,9 @@ import { DigimonService } from './digimon.service';
 })
 export class DigimonComponent {
   digimons: Digimon[] = [];
+  filteredDigimons?: Digimon[];
+
+  filter: string = '';
 
   constructor(private readonly digimonService: DigimonService) {}
 
@@ -20,5 +23,15 @@ export class DigimonComponent {
     this.digimonService
       .getDigimons()
       .subscribe((digimons) => (this.digimons = digimons));
+  }
+
+  filterDigimons(): void {
+    this.filteredDigimons = this.filter
+      ? this.digimons.filter((digimon) => {
+          return (digimon.name + digimon.level)
+            .toLowerCase()
+            .includes(this.filter.toLowerCase());
+        })
+      : undefined;
   }
 }
