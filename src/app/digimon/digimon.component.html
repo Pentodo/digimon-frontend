@@ -1,11 +1,14 @@
 <div class="search">
   <input
-    type="text"
     [(ngModel)]="filter"
     (ngModelChange)="filterDigimons()"
     placeholder="Pesquisar por nome ou digievolução"
   />
+  <select [(ngModel)]="order" (ngModelChange)="sortDigimons()">
+    <option value="name">Ordenar por nome</option>
+    <option value="level">Ordenar por digievolução</option>
+  </select>
 </div>
 <app-digimon-cards
-  [digimons]="filteredDigimons ? filteredDigimons : digimons"
+  [digimons]="filteredDigimons || digimons"
 ></app-digimon-cards>

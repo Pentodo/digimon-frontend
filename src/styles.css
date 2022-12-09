@@ -11,6 +11,8 @@
 }
 
 body {
+  background-color: aquamarine;
   font-family: "Pixel Digivolve";
+  font-smooth: never;
   -webkit-font-smoothing: none;
 }

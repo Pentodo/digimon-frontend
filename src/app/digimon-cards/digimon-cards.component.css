@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   gap: 2em;
   width: 100%;
+  padding-bottom: 2em;
 }
 
 .digimon {
@@ -17,30 +18,31 @@
 }
 
 .digimon > img {
-  width: 240px;
+  width: 100%;
+  max-width: 240px;
   border-radius: 50%;
 }
 
 .fresh {
-  background-color: greenyellow;
+  background-color: #2cba00;
 }
 
 .training {
-  background-color: yellowgreen;
+  background-color: #a3ff00;
 }
 
 .rookie {
-  background-color: yellow;
+  background-color: #fff400;
 }
 
 .champion {
-  background-color: orange;
+  background-color: #ffa700;
 }
 
 .ultimate {
-  background-color: orangered;
+  background-color: #ff4500;
 }
 
 .mega {
-  background-color: red;
+  background-color: #ff0000;
 }

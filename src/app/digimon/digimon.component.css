@@ -5,10 +5,33 @@
   padding-bottom: 2em;
 }
 
-.search > input {
+.search > input,
+.search > select {
   font-family: "Pixel Digivolve";
   font-size: 1.2em;
   text-align: center;
   padding: 0.25em 0.5em;
-  width: 33%;
+  box-sizing: border-box;
+}
+
+.search > input {
+  width: 25em;
+}
+
+.search > select {
+  width: 20em;
+}
+
+@media only screen and (max-width: 900px) {
+  .search {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .search > input,
+  .search > select {
+    width: 90%;
+    font-size: 0.8em;
+  }
 }
