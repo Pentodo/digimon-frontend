@@ -7,12 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: DigimonComponent,
-    title: 'Digimons',
-  },
-  {
-    path: 'levels',
-    component: DigimonComponent,
-    title: 'Digievoluções',
+    title: 'Digimon: Digital Monsters',
   },
 ];
 
