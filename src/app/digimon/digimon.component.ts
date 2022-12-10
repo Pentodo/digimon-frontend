@@ -44,16 +44,6 @@ export class DigimonComponent {
   }
 
   sortDigimons(): void {
-    const levels: any = {
-      Fresh: 0,
-      'In Training': 1,
-      Rookie: 2,
-      Champion: 3,
-      Ultimate: 4,
-      Mega: 5,
-      Armor: 6,
-    };
-
     switch (this.order) {
       case 'name':
         this.digimons.sort((a, b) => {
@@ -63,6 +53,16 @@ export class DigimonComponent {
         break;
 
       case 'level':
+        const levels: any = {
+          Fresh: 0,
+          'In Training': 1,
+          Rookie: 2,
+          Champion: 3,
+          Ultimate: 4,
+          Mega: 5,
+          Armor: 6,
+        };
+
         this.digimons.sort((a, b) => {
           return levels[a.level] - levels[b.level];
         });
