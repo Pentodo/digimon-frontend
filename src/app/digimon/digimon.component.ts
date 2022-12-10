@@ -32,14 +32,12 @@ export class DigimonComponent {
   }
 
   filterDigimons(): void {
-    const _filter = this.filter;
-
     this.digimons.forEach((digimon) => {
       const filterCheck =
-        !_filter ||
+        !this.filter ||
         `${digimon.name} ${digimon.level}`
           .toLowerCase()
-          .includes(_filter.toLowerCase());
+          .includes(this.filter.toLowerCase());
 
       digimon.visible = filterCheck;
     });
