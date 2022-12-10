@@ -11,6 +11,7 @@
 }
 
 body {
+  overflow-y: scroll;
   background-color: aquamarine;
   font-family: "Pixel Digivolve";
   font-smooth: never;
