@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Digimon, FilteredDigimon } from '../digimon/digimon.interface';
+import { FilteredDigimon } from '../digimon/digimon.interface';
 
 @Component({
   selector: 'app-digimon-cards',
