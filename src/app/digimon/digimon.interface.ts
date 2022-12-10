@@ -4,6 +4,6 @@ export interface Digimon {
   level: string;
 }
 
-export interface FilteredDigimon extends Digimon {
+export interface FilterableDigimon extends Digimon {
   visible: boolean;
 }

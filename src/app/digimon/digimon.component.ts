@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FilteredDigimon } from './digimon.interface';
+import { FilterableDigimon } from './digimon.interface';
 import { DigimonService } from './digimon.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { DigimonService } from './digimon.service';
   styleUrls: ['./digimon.component.css'],
 })
 export class DigimonComponent {
-  digimons: Array<FilteredDigimon> = [];
+  digimons: Array<FilterableDigimon> = [];
 
   filter: string = '';
   order: string = 'name';
@@ -23,7 +23,7 @@ export class DigimonComponent {
   getDigimons(): void {
     this.digimonService.getDigimons().subscribe((digimons) => {
       this.digimons = digimons.map((digimon) => {
-        return ((digimon as FilteredDigimon) = { ...digimon, visible: true });
+        return ((digimon as FilterableDigimon) = { ...digimon, visible: true });
       });
 
       this.sortDigimons();
