@@ -17,16 +17,16 @@ export class DigimonComponent {
   constructor(private readonly digimonService: DigimonService) {}
 
   ngOnInit(): void {
-    this.getDigimons(this.sortDigimons);
+    this.getDigimons();
   }
 
-  getDigimons(...callback: Function[]): void {
+  getDigimons(): void {
     this.digimonService.getDigimons().subscribe((digimons) => {
       this.digimons = digimons.map((digimon) => {
         return ((digimon as FilteredDigimon) = { ...digimon, visible: true });
       });
 
-      callback.forEach((fn) => fn());
+      this.sortDigimons();
     });
   }
 
