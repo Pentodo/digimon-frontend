@@ -17,29 +17,26 @@ export class DigimonComponent {
   constructor(private readonly digimonService: DigimonService) {}
 
   ngOnInit(): void {
-    this.getDigimons();
+    this.getDigimons(this.sortDigimons);
   }
 
-  getDigimons(): void {
+  getDigimons(...callback: Function[]): void {
     this.digimonService.getDigimons().subscribe((digimons) => {
-      this.digimons = digimons.map(
-        (digimon) =>
-          ((digimon as FilteredDigimon) = { ...digimon, visible: true })
-      );
+      this.digimons = digimons.map((digimon) => {
+        return ((digimon as FilteredDigimon) = { ...digimon, visible: true });
+      });
 
-      this.sortDigimons();
+      callback.forEach((fn) => fn());
     });
   }
 
   filterDigimons(): void {
     this.digimons.forEach((digimon) => {
-      const filterCheck =
-        !this.filter ||
-        `${digimon.name} ${digimon.level}`
-          .toLowerCase()
-          .includes(this.filter.toLowerCase());
-
-      digimon.visible = filterCheck;
+      digimon.visible = this.filter
+        ? `${digimon.name} ${digimon.level}`
+            .toLowerCase()
+            .includes(this.filter.toLowerCase())
+        : true;
     });
   }
 
