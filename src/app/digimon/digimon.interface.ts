@@ -3,3 +3,7 @@ export interface Digimon {
   img: string;
   level: string;
 }
+
+export interface FilteredDigimon extends Digimon {
+  visible: boolean;
+}

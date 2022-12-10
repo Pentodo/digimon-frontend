@@ -23,6 +23,10 @@
   border-radius: 50%;
 }
 
+.invisible {
+  display: none;
+}
+
 .fresh {
   background-color: #2cba00;
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Digimon } from './digimon.interface';
+import { FilteredDigimon } from './digimon.interface';
 import { DigimonService } from './digimon.service';
 
 @Component({
@@ -9,8 +9,7 @@ import { DigimonService } from './digimon.service';
   styleUrls: ['./digimon.component.css'],
 })
 export class DigimonComponent {
-  digimons: Digimon[] = [];
-  filteredDigimons: Digimon[] | undefined;
+  digimons: Array<FilteredDigimon> = [];
 
   filter: string = '';
   order: string = 'name';
@@ -23,19 +22,27 @@ export class DigimonComponent {
 
   getDigimons(): void {
     this.digimonService.getDigimons().subscribe((digimons) => {
-      this.digimons = digimons;
+      this.digimons = digimons.map(
+        (digimon) =>
+          ((digimon as FilteredDigimon) = { ...digimon, visible: true })
+      );
+
       this.sortDigimons();
     });
   }
 
   filterDigimons(): void {
-    this.filteredDigimons = this.filter
-      ? this.digimons.filter((digimon) =>
-          `${digimon.name} ${digimon.level}`
-            .toLowerCase()
-            .includes(this.filter.toLowerCase())
-        )
-      : undefined;
+    const _filter = this.filter;
+
+    this.digimons.forEach((digimon) => {
+      const filterCheck =
+        !_filter ||
+        `${digimon.name} ${digimon.level}`
+          .toLowerCase()
+          .includes(_filter.toLowerCase());
+
+      digimon.visible = filterCheck;
+    });
   }
 
   sortDigimons(): void {
@@ -49,18 +56,18 @@ export class DigimonComponent {
       Armor: 6,
     };
 
-    function sortByName(a: Digimon, b: Digimon) {
-      return a.name > b.name ? 1 : -1;
-    }
-    function sortByLevel(a: Digimon, b: Digimon) {
-      return levels[a.level] - levels[b.level];
-    }
+    switch (this.order) {
+      case 'name':
+        this.digimons.sort((a, b) => {
+          return a.name > b.name ? 1 : -1;
+        });
 
-    const sortFunction = this.order === 'name' ? sortByName : sortByLevel;
+        break;
 
-    this.digimons.sort(sortFunction);
-    if (this.filteredDigimons) {
-      this.filteredDigimons.sort(sortFunction);
+      case 'level':
+        this.digimons.sort((a, b) => {
+          return levels[a.level] - levels[b.level];
+        });
     }
   }
 }

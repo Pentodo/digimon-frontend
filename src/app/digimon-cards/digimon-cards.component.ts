@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Digimon } from '../digimon/digimon.interface';
+import { Digimon, FilteredDigimon } from '../digimon/digimon.interface';
 
 @Component({
   selector: 'app-digimon-cards',
@@ -8,5 +8,5 @@ import { Digimon } from '../digimon/digimon.interface';
   styleUrls: ['./digimon-cards.component.css'],
 })
 export class DigimonCardsComponent {
-  @Input() digimons: Digimon[] = [];
+  @Input() digimons: FilteredDigimon[] = [];
 }
