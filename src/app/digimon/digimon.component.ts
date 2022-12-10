@@ -9,7 +9,7 @@ import { DigimonService } from './digimon.service';
   styleUrls: ['./digimon.component.css'],
 })
 export class DigimonComponent {
-  digimons: Array<FilterableDigimon> = [];
+  digimons: FilterableDigimon[] = [];
 
   filter: string = '';
   order: string = 'name';
@@ -22,10 +22,9 @@ export class DigimonComponent {
 
   getDigimons(): void {
     this.digimonService.getDigimons().subscribe((digimons) => {
-      this.digimons = digimons.map((digimon) => {
-        return ((digimon as FilterableDigimon) = { ...digimon, visible: true });
-      });
+      this.digimons = digimons as FilterableDigimon[];
 
+      this.filterDigimons();
       this.sortDigimons();
     });
   }
